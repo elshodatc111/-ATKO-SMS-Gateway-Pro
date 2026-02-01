@@ -1,0 +1,19 @@
+# --- MAXFIY FAYLLAR ---
+.env
+
+# --- PYTHON VAQTINCHALIK FAYLLARI ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# --- MA'LUMOTLAR BAZASI ---
+# Agar bazani (tarixni) ommaga ko'rsatmoqchi bo'lmasangiz:
+database.db
+
+# --- MODEM VA TIZIM FAYLLARI ---
+*.log
+.vscode/
+.idea/
