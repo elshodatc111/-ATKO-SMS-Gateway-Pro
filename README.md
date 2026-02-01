@@ -35,3 +35,46 @@
 ```bash
 git clone [https://github.com/username/atko-sms-gateway.git](https://github.com/username/atko-sms-gateway.git)
 cd atko-sms-gateway
+```
+### 2. Kutubxonalarni o'rnatish
+```bash
+pip install -r requirements.txt
+```
+### .env faylini sozlash
+Loyihaning asosiy papkasida .env faylini yarating va quyidagi parametrlarni kiriting:
+```bash
+API_ACCESS_TOKEN=sizning_maxfiy_tokeningiz
+MODEM_PORT=COM6  # Device Manager'dan modem portini tekshiring
+MODEM_BAUD_RATE=115200
+DATABASE_URL=sqlite:///./database.db
+```
+## 🚀 Ishga tushirish
+### 1. Backend serverni ishga tushiring:
+```bush
+python main.py
+```
+### 2. Tunnelni yoqing:
+```bush
+cloudflared tunnel --url http://localhost:8000
+```
+## 📖 API Qo'llanmasi
+SMS yuborish
+    Metod: POST
+    URL: /send-sms
+    Header: X-API-TOKEN: <sizning_tokeningiz>
+Body (JSON):
+{
+  "phone": "+998901234567",
+  "message": "Salom! Bu ATKO SMS Gateway orqali yuborilgan xabar."
+}
+### Loglarni ko'rish
+Metod: GET
+URL: /logs
+Hujjatlar: /docs (Swagger UI)
+
+## ⚠️ Diqqat!
+.env va database.db fayllari .gitignore ga qo'shilgan, ularni GitHub-ga yuklamang.
+SMS yuborish tezligi modem va sim-karta operatoriga bog'liq (tavsiya etilgan oraliq: 2-5 soniya).
+
+## 👨‍💻 Muallif
+### Loyiha Egasi: Elshod Musurmonov Telegram: [@beckend_dev]
